@@ -7,6 +7,7 @@
 <body>
     <div>
         <h3>Список</h3>
+        <p>Количество товаров в корзине: {{ total_items }}</p>
         <table>
             <tr>
                 <td><p>Наименование</p></td>
@@ -17,10 +18,18 @@
                 <tr>
                     <td><p>{{ p.name }}</p></td>
                     <td><p>{{ p.price }}</p></td>
-                    <td><p><a href="/buy/{{ p.id }}">Купить</a></p></td>
+                    <td>
+                        <form method="post" action="{% url 'index' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="product_id" value="{{ p.id }}">
+                            <input type="submit" value="Добавить в корзину">
+                        </form>
+                    </td>
                 </tr>
             {% endfor %}
         </table>
+        <a href="{% url 'cart' %}">Перейти в корзину</a>
+        <a href="{% url 'edit_cart' %}">Редактировать корзину</a>
     </div>
 </body>
 </html>
