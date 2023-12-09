@@ -7,8 +7,12 @@
 <body>
     <div>
         <h3>Покупка</h3>
-        <form method="post">{% csrf_token %}
+        <form method="post" action="{% url 'buy' product_id=view.kwargs.product_id %}">
+            {% csrf_token %}
             <input type="hidden" value="{{ view.kwargs.product_id }}" name="product" />
+            {% for item in cart_items %}
+                <input type="hidden" name="cart_items[]" value="{{item.id }}">
+            {% endfor %}
             <table>
                 <tr>
                     <td><p>Введите свое имя </p></td>
