@@ -1,15 +1,56 @@
 - model: shop.product
   pk: 1
   fields:
-    name: Стол
+    name: Водка "Белочки"
     price: 2000
+    alcohol_type: Водка
+    quantity: 0
 - model: shop.product
   pk: 2
   fields:
-    name: Стул
-    price: 1000
+    name: Вино "Кальябинск"
+    price: 1280
+    alcohol_type: Вино
+    quantity: 0
 - model: shop.product
   pk: 3
   fields:
-    name: Табурет
+    name: Пиво "Love Craft"
+    price: 900
+    alcohol_type: Пиво
+    quantity: 0
+- model: shop.product
+  pk: 4
+  fields:
+    name: Бренди "Brothers"
     price: 500
+    alcohol_type: Виски
+    quantity: 0
+- model: shop.product
+  pk: 5
+  fields:
+    name: Пиво светлое
+    price: 140
+    alcohol_type: Пиво
+    quantity: 0
+- model: shop.product
+  pk: 6
+  fields:
+    name: Вино красное
+    price: 1250
+    alcohol_type: Вино
+    quantity: 0
+- model: shop.product
+  pk: 7
+  fields:
+    name: Виски "Fexa's barrel"
+    price: 4000
+    alcohol_type: Виски
+    quantity: 0
+- model: shop.product
+  pk: 8
+  fields:
+    name: Водка "Five bottles from Eternity"
+    price: 500
+    alcohol_type: Водка
+    quantity: 0
