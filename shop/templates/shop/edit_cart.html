@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-witdh" />
+    <title>Корзина</title>
+</head>
+<body>
+    <div>
+        <h3>Корзина</h3>
+        <p>Общее количество товаров: {{ total_items }}</p>
+        <form method="post" action="{% url 'edit_cart' %}">
+            {% csrf_token %}
+            {% for item in cart_items %}
+                <p>{{ item.name }} - Цена: {{ item.price }} - Количество: {{ item.quantity }}</p>
+                <input type="hidden" name="product_id" value="{{ item.id }}">
+                <button type="submit" name="action" value="remove">Удалить</button>
+                <button type="submit" name="action" value="decrease">Уменьшить</button>
+            {% endfor %}
+        </form>
+        <a href="{% url 'index' %}">Главная</a>
+    </div>
+</body>
+</html>

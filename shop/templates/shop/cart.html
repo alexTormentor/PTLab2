@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-witdh" />
+    <title>Корзина</title>
+</head>
+<body>
+    <div>
+        <h3>Корзина</h3>
+        <p>Общее количество товаров: {{total_items }}</p>
+        <table>
+            <tr>
+                <td><p>Наименование</p></td>
+                <td><p>Цена</p></td>
+                <td><p>Количество</p></td>
+            </tr>
+            {% for item in cart_items %}
+                <tr>
+                    <td><p>{{ item.name }}</p></td>
+                    <td><p>{{ item.price }}</p></td>
+                    <td><p>{{ item.quantity }}</p></td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="{% url 'buy' %}"><button>Купить</button></a>
+        <a href="{% url 'index' %}">Главная</a>
+    </div>
+</body>
+</html>
