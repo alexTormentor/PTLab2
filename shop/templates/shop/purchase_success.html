@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Покупка завершена</title>
+</head>
+<body>
+    <div>
+        {% csrf_token %}
+        <h3>Покупка завершена</h3>
+        <p>Спасибо за ваш заказ!</p>
+
+        {% for item in cart_items %}
+            <p>Вы купили: {{ item.name }}</p>
+            <p>Количество: {{ item.quantity }}</p>
+            <p>Цена: {{ item.price }} руб.</p>
+        {% endfor %}
+
+        <p>Имя покупателя: {{ person }}</p>
+        <p>Адрес доставки: {{ address }}</p>
+
+        <p>Товары будут доставлены по указанному вами адресу.</p>
+        <a href="{% url 'index' %}">Вернуться на главную</a>
+    </div>
+</body>
+</html>
