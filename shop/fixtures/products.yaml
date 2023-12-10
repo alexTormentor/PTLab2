@@ -54,3 +54,10 @@
     price: 500
     alcohol_type: Водка
     quantity: 0
+- model: shop.product
+  pk: 9
+  fields:
+    name: Пиво "Отработка С ЖИГУЛЕЙ"
+    price: 10000
+    alcohol_type: БАН
+    quantity: 0
