@@ -7,11 +7,11 @@
 <body>
     <div>
         <h3>Покупка</h3>
-        <form method="post" action="{% url 'buy' product_id=view.kwargs.product_id %}">
+        <form method="post" action="{% if product_id %}{% url 'buy' product_id=product_id %}{% else %}{% url 'buy_all' %}{% endif %}">
             {% csrf_token %}
-            <input type="hidden" value="{{ view.kwargs.product_id }}" name="product" />
+            <input type="hidden" value="{{ product_id }}" name="product" />
             {% for item in cart_items %}
-                <input type="hidden" name="cart_items[]" value="{{item.id }}">
+                <input type="hidden" name="cart_items[]" value="{{ item.id }}">
             {% endfor %}
             <table>
                 <tr>
@@ -24,7 +24,10 @@
                         <input type="text" name="address" />
                     </td>
                 </tr>
-                <tr><td><input type="submit" value="Отправить" /> </td><td></td></tr>
+                <tr>
+                    <td><input type="submit" value="Отправить" /></td>
+                    <td></td>
+                </tr>
             </table>
         </form>
     </div>
